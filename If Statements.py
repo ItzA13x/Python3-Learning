@@ -32,13 +32,5 @@ car = 'bmw'
 
 print(car == 'bmw')
 
-# Line 31 sets the value of car to 'bmw' using a single equal sign. 
-# Line 33 checks whether the value of car is 'bmw' using a double equal sign (==). 
-# This equality operator returns True if the values on the left and right side of the operator match, and False if they don’t match. 
-# The values in this example match, so Python returns True. 
-# When the value of car is anything other than 'bmw', this test returns False: 
 
-car = 'audi'
-
-print(car == 'bmw')
 
