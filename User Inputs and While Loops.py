@@ -384,4 +384,3 @@ while polling_active:
 # That information is stored in the responses dictionary, and the user is asked whether or not to keep the poll running. 
 # If they enter yes, the program enters the while loop again. 
 # If they enter no, the polling_active flag is set to False, the while loop stops running, and the final code block at line 378 displays the results of the poll. 
-
