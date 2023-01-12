@@ -115,6 +115,6 @@ else:
     print("The number is " + str(number) + " is odd.")
 
 # Even numbers are always divisible by two, so if the modulo of a number and two is zero (here, if number % 2 == 0) the number is even. 
-# Otherwise, it’s odd. and therefore ur bad fr fr
+# Otherwise, it’s odd.
 
 ####################################################################################################################
