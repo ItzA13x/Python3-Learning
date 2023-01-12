@@ -116,5 +116,5 @@ else:
 
 # Even numbers are always divisible by two, so if the modulo of a number and two is zero (here, if number % 2 == 0) the number is even. 
 # Otherwise, it’s odd.
-print(number)
+
 ####################################################################################################################
