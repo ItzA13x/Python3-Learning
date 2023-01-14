@@ -1,6 +1,0 @@
-Variable and Simple Data Types: 252 Lines
-Lists Part 1: 345 Lines
-Lists Part 2: 466 Lines
-If Statements: 544 Lines
-Dictionaries: 537 Lines
-User Inputs and While Loops: 387 Lines
