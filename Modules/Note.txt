@@ -1,0 +1,4 @@
+Files must be moved to the same directory as the file importing the module.
+Eg. pizza.py must be moved from C:\Users\TIbal\Desktop\Python 3 Learning\Phyton3-Learning\Modules"
+to the same directory to Functions.py (C:\Users\TIbal\Desktop\Python 3 Learning\Phyton3-Learning)
+when needing to access the module.
