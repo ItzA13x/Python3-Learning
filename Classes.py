@@ -55,3 +55,46 @@ class Dog():
 # But the concept can be extended to realistic situations: if this class were part of an actual computer game, these methods would contain code to make an animated dog sit and roll over. 
 # If this class was written to control a robot, these methods would direct movements that cause a dog robot to sit and roll over.   
 
+####################################################################################################################
+
+# Think of a class as a set of instructions for how to make an instance. 
+# The class Dog is a set of instructions that tells Python how to make individual instances representing specific dogs.  
+# Let’s make an instance representing a specific dog:
+
+'''
+class Dog():
+    ...
+'''
+my_dog = Dog('willie', 6)
+
+print("My dog's name is " + my_dog.name.title() + ".")
+print("My dog is " + str(my_dog.age) + " years old")
+
+# The Dog class we’re using here is the one we just wrote in the previous example. 
+# At line 68 we tell Python to create a dog whose name is 'willie' and whose age is 6. 
+# When Python reads this line, it calls the __init__() method in Dog with the arguments 'willie' and 6. 
+# The __init__() method creates an instance representing this particular dog and sets the name and age attributes using the values we provided. 
+# The __init__() method has no explicit return statement, but Python automatically returns an instance representing this dog. 
+# We store that instance in the variable my_dog. 
+# The naming convention is helpful here: we can usually assume that a capitalized name like Dog refers to a class, and a lowercase name like my_dog refers to a single instance created from a class.   
+
+# To access the attributes of an instance, you use dot notation. 
+# At line 70 we access the value of my_dog’s attribute name by writing:
+
+my_dog.name
+
+# Dot notation is used often in Python. 
+# This syntax demonstrates how Python finds an attribute’s value. 
+# Here Python looks at the instance my_dog and then finds the attribute name associated with my_dog. 
+# This is the same attribute referred to as self.name in the class Dog. 
+# At line we use the same approach to work with the attribute age. 
+# In our first print statement, my_dog.name.title() makes 'willie', the value of my_dog’s name attribute, start with a capital letter. 
+# In the second print statement, str(my_dog.age) converts 6, the value of my_dog’s age attribute, to a string. 
+# The output is a summary of what we know about my_dog.
+
+# After we create an instance from the class Dog, we can use dot notation to call any method defined in Dog. 
+# Let’s make our dog sit and roll over:
+
+my_dog.sit()
+my_dog.roll_over()
+
