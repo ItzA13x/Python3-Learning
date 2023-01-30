@@ -98,3 +98,150 @@ my_dog.name
 my_dog.sit()
 my_dog.roll_over()
 
+# To call a method, give the name of the instance (in this case, my_dog) and the method you want to call, separated by a dot.
+# When Python reads my_dog.sit(), it looks for the method sit() in the class Dog and runs that code. 
+# Python interprets the line my_dog.roll_over() in the same way. 
+# Now Willie does what we tell him to
+
+# This syntax is quite useful. 
+# When attributes and methods have been given appropriately descriptive names like name, age, sit(), and roll_over(), we can easily infer what a block of code, even one we’ve never seen before, is supposed to do.
+
+# You can create as many instances from a class as you need. Let’s create a second dog called your_dog:
+
+my_dog = Dog('willie', 6)
+your_dog = Dog('lucy', 3)
+
+print("My dog's name is " + my_dog.name.title() + ".")
+print("My dog is " + str(my_dog.age) + "years old.")
+my_dog.sit()
+print("\nYour dog's name is " + your_dog.name.title() + ".")
+print("Your dog is " + str(your_dog.age) + " years old")
+your_dog.sit()
+
+# In this example we create a dog named Willie and a dog named Lucy. 
+# Each dog is a separate instance with its own set of attributes, capable of the same set of actions.
+
+# Even if we used the same name and age for the second dog, Python would still create a separate instance from the Dog class. 
+# You can make as many instances from one class as you need, as long as you give each instance a unique variable name or it occupies a unique spot in a list or dictionary.
+
+####################################################################################################################
+
+# You can use classes to represent many real-world situations. 
+# Once you write a class, you’ll spend most of your time working with instances created from that class. 
+# One of the first tasks you’ll want to do is modify the attributes associated with a particular instance. 
+# You can modify the attributes of an instance directly or write methods that update attributes in specific ways.
+
+# Let’s write a new class representing a car. 
+# Our class will store information about the kind of car we’re working with, and it will have a method that summarizes this information:
+
+class Car():
+    '''A simple attempt to represent a car.'''
+
+    def __init__(self, make, model, year):
+        '''Initialize attributes to describe a car.'''
+        self.make = make
+        self.model = model
+        self.year = year
+        self.odometer_reading = 0
+
+    def get_descriptive_name(self):
+        '''Return a neatly formatted descriptive name.'''
+        long_name = str(self.year) + ' ' + self.make + ' ' + self.model
+        return long_name.title()
+    
+    def read_odometer(self):
+        '''Print a statement showing the car's mileage'''
+        print("This car has " + str(self.odometer_reading) + " miles on it.")
+    
+    def update_odometer(self, mileage):
+        '''Set the odometer reading to the given value
+            Reject the change if it attempts to roll the odometer back
+        '''
+        if mileage >= self.odometer_reading:
+            self.odometer_reading = mileage
+        else:
+            print("You can't roll back and odometer!")#
+    
+    def increment_odometer(self, miles):
+        '''Add the given amount to the odometer reading.'''
+        self.odometer_reading += miles
+    
+my_new_car = Car('audi', 'a4', 2016)
+print(my_new_car.get_descriptive_name())
+my_new_car.read_odometer()
+
+# At line 140 in the Car class, we define the __init__() method with the self parameter first, just like we did before with our Dog class. 
+# We also give it three other parameters: make, model, and year. The __init__() method takes in these parameters and stores them in the attributes that will be associated with instances made from this class. 
+# When we make a new Car instance, we’ll need to specify a make, model, and year for our instance. 
+# At line 146 we define a method called get_descriptive_name() that puts a car’s year, make, and model into one string neatly describing the car. This will spare us from having to print each attribute’s value individually. 
+# To work with the attribute values in this method, we use self.make, self.model, and self.year.
+# At line 151 we make an instance from the Car class and store it in the variable my_new_car. 
+# Then we call get_descriptive_name() to show what kind of car we have.
+
+# To make the class more interesting, let’s add an attribute that changes over time. 
+# We’ll add an attribute that stores the car’s overall mileage.
+
+# Every attribute in a class needs an initial value, even if that value is 0 or an empty string. 
+# In some cases, such as when setting a default value, it makes sense to specify this initial value in the body of the __init__() method; if you do this for an attribute, you don’t have to include a parameter for that attribute. 
+# Let’s add an attribute called odometer_reading that always starts with a value of 0. 
+# We’ll also add a method read_odometer() that helps us read each car’s odometer (lines 145, 152 - 154 and 158)
+
+# This time when Python calls the __init__() method to create a new instance, it stores the make, model, and year values as attributes like it did in the previous example. 
+# Then Python creates a new attribute called odometer_reading and sets its initial value to 0. 
+# We also have a new method called read_odometer() at line 152 that makes it easy to read a car’s mileage.
+
+# Not many cars are sold with exactly 0 miles on the odometer, so we need a way to change the value of this attribute.
+
+####################################################################################################################
+
+# You can change an attribute’s value in three ways: you can change the value directly through an instance, set the value through a method, or increment the value (add a certain amount to it) through a method. 
+# Let’s look at each of these approaches.
+
+# The simplest way to modify the value of an attribute is to access the attribute directly through an instance. 
+# Here we set the odometer reading to 23 directly:
+
+my_new_car.odometer_reading = 23
+my_new_car.read_odometer()
+
+# At line 190 we use dot notation to access the car’s odometer_reading attribute and set its value directly. 
+# This line tells Python to take the instance my_new_car, find the attribute odometer_reading associated with it, and set the value of that attribute to 23.
+
+# Sometimes you’ll want to access attributes directly like this, but other times you’ll want to write a method that updates the value for you.
+# (Lines 156 - 158 and lines 203, 204)
+
+my_new_car.update_odometer(23)
+my_new_car.read_odometer()
+
+# The only modification to Car is the addition of update_odometer() at line 156.
+# This method takes in a mileage value and stores it in self.odometer_reading.
+# At line 194 we call update_odometer() and give it 23 as an argument (corresponding to the mileage parameter in the method definition).
+# It sets the odometer reading to 23, and read_odometer() prints the reading.
+
+# We can extend the method update_odometer() to do additional work every time the odometer reading is modified. 
+# Let’s add a little logic to make sure no one tries to roll back the odometer reading:
+# (Lines 160, 162 and 163)
+
+# Now update_odometer() checks that the new reading makes sense before modifying the attribute. 
+# If the new mileage, mileage, is greater than or equal to the existing mileage, self.odometer_reading, you can update the odometer reading to the new mileage. 
+# If the new mileage is less than the existing mileage, you’ll get a warning that you can’t roll back an odometer.  
+
+# Sometimes you’ll want to increment an attribute’s value by a certain amount rather than set an entirely new value. 
+# Say we buy a used car and put 100 miles on it between the time we buy it and the time we register it. 
+# Here’s a method that allows us to pass this incremental amount and add that value to the odometer reading.
+# (Lines 165 - 167, 233 - 240)
+
+my_used_car = Car('subaru', 'outback', 2013)
+print(my_used_car.get_descriptive_name())
+
+my_used_car.update_odometer(23500)
+my_used_car.read_odometer()
+
+my_used_car.increment_odometer(100)
+my_used_car.read_odometer()
+
+# The new method increment_odometer() at line 165 takes in a number of miles, and adds this value to self.odometer_reading. 
+# At line 233 we create a used car, my_used_car. 
+# We set its odometer to 23500 by calling update_odometer() and passing it 23500 at line 236. 
+# At line 239 we call increment_odometer() and pass it 100 to add the 100 miles that we drove between buying the car and registering it: 
+
+# You can easily modify this method to reject negative increments so no one uses this function to roll back an odometer.
